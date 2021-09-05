@@ -23,7 +23,7 @@ func main() {
 
 	// Permission Setting
 	log.Printf("[FS] Setting permissions to the $WINDOWS.~BT directory for editing.")
-	err = os.Chmod("C:/$WINDOWS.~BT/Sources", 0700)
+	err = os.Chown("C:/$WINDOWS.~BT/Sources", os.Getuid(), os.Getgid())
 	if err != nil {
 		log.Fatal(err)
 	}
